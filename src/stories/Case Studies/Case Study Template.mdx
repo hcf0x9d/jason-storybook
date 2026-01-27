@@ -1,0 +1,113 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { PageLayout, Callout, Section, ArtifactGallery, Metric, Divider } from '../../components';
+import * as React from 'react';
+
+<Meta title="Case Studies/Case Study Template" />
+
+<PageLayout
+  title="Case Study Template"
+  subtitle="A structured approach to documenting design work"
+  meta="Template • 2024"
+>
+
+<Callout variant="info" title="TL;DR">
+  This template demonstrates the structure I use for case studies. It includes sections for context, 
+  approach, artifacts, outcomes, and reflection. Use this as a reference when creating new case studies.
+</Callout>
+
+<Section heading="Context & Constraints">
+  <div>
+    Every design project exists within a specific context. Documenting the constraints, 
+    goals, and initial state helps readers understand why decisions were made.
+  </div>
+  <div className="mt-4">
+    Key things to include:
+  </div>
+  <ul className="list-disc list-inside space-y-2 my-4">
+    <li>Business goals and success metrics</li>
+    <li>Technical constraints</li>
+    <li>Timeline and resources</li>
+    <li>Team structure and stakeholders</li>
+  </ul>
+</Section>
+
+<Section heading="Approach">
+  <div>
+    Describe the methodology, research, and design process. This is where you explain 
+    the "how" and "why" of your decisions.
+  </div>
+  <div className="mt-4">
+    Consider covering:
+  </div>
+  <ul className="list-disc list-inside space-y-2 my-4">
+    <li>Research methods and findings</li>
+    <li>Design principles applied</li>
+    <li>Iteration cycles</li>
+    <li>Collaboration approach</li>
+  </ul>
+</Section>
+
+<Section heading="Artifacts">
+  <div>
+    Show the work. Include key screens, components, documentation, or other artifacts 
+    that demonstrate the solution.
+  </div>
+  
+  <ArtifactGallery
+    columns={3}
+    artifacts={[
+      {
+        image: 'https://via.placeholder.com/400x300?text=Artifact+1',
+        caption: 'Component library overview',
+      },
+      {
+        image: 'https://via.placeholder.com/400x300?text=Artifact+2',
+        caption: 'Design tokens documentation',
+      },
+      {
+        image: 'https://via.placeholder.com/400x300?text=Artifact+3',
+        caption: 'Usage examples',
+      },
+    ]}
+  />
+</Section>
+
+<Divider />
+
+<Section heading="Outcomes">
+  <div>
+    What were the results? Include both quantitative metrics and qualitative feedback.
+  </div>
+  
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+    <Metric
+      label="Adoption Rate"
+      value="85%"
+      helperText="Of components in use"
+    />
+    <Metric
+      label="Time to Build"
+      value="-40%"
+      helperText="Reduction in feature time"
+    />
+    <Metric
+      label="Design Debt"
+      value="-60%"
+      helperText="Reduction in inconsistencies"
+    />
+  </div>
+</Section>
+
+<Section heading="What I'd Do Differently">
+  <div>
+    Honest reflection on what could be improved. This shows growth mindset and helps 
+    others learn from your experience.
+  </div>
+  <ul className="list-disc list-inside space-y-2 my-4">
+    <li>Start with documentation earlier in the process</li>
+    <li>Involve developers more in the design phase</li>
+    <li>Establish governance from day one</li>
+  </ul>
+</Section>
+
+</PageLayout>

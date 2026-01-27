@@ -1,0 +1,90 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { PageLayout, Metric, Section, Callout, Icon } from '../../components';
+import * as React from 'react';
+
+<Meta title="Start Here/Overview" />
+
+<PageLayout
+  title="Jason Fukura — Portfolio"
+  subtitle="Design Systems & Product Design"
+  meta="Built with Storybook"
+  icon="lni-user"
+>
+
+<Section heading="Welcome">
+  Welcome to my portfolio. This site is built with Storybook to showcase both my design work and the systems I build.
+
+  I specialize in design systems, product design, and the operational practices that make great design teams successful.
+</Section>
+
+<Section heading="Quick Facts">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+    <Metric
+      label="Years Experience"
+      value="10+"
+      helperText="Design systems & product"
+    />
+    <Metric
+      label="Design Systems"
+      value="3"
+      helperText="Built from scratch"
+    />
+    <Metric
+      label="Teams Led"
+      value="5+"
+      helperText="Cross-functional"
+    />
+  </div>
+</Section>
+
+<Section heading="Case Studies">
+  <div className="mb-4">
+    Explore detailed case studies of my work:
+  </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+    <Callout variant="info" title="Case Study Template">
+      <div className="mb-2 font-semibold text-blue-600">
+        View the template →
+      </div>
+      <div className="text-sm">
+        See the structure I use for documenting case studies. Use the sidebar to navigate.
+      </div>
+    </Callout>
+    <Callout variant="info" title="Ambrosia Design System">
+      <div className="mb-2 font-semibold text-blue-600">
+        Coming soon →
+      </div>
+      <div className="text-sm">
+        A comprehensive design system built for scale.
+      </div>
+    </Callout>
+    <Callout variant="info" title="DesignOps OS">
+      <div className="mb-2 font-semibold text-blue-600">
+        Coming soon →
+      </div>
+      <div className="text-sm">
+        Operational systems for design teams.
+      </div>
+    </Callout>
+    <Callout variant="info" title="Kyōfolio">
+      <div className="mb-2 font-semibold text-blue-600">
+        Coming soon →
+      </div>
+      <div className="text-sm">
+        A portfolio platform for designers.
+      </div>
+    </Callout>
+  </div>
+</Section>
+
+<Section heading="Get in Touch">
+  <div>
+    Interested in working together? I'm always open to discussing design systems, product design, or how to build better design operations.
+  </div>
+  <div className="flex items-center gap-4 mt-4">
+    <Icon name="lni-envelope" className="text-gray-600" />
+    <span className="text-gray-700">Available for consulting and full-time opportunities</span>
+  </div>
+</Section>
+
+</PageLayout>

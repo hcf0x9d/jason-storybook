@@ -1,36 +1,187 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jason Fukura — Portfolio (Storybook)
 
-## Getting Started
+A portfolio site built with Storybook, showcasing design systems work, case studies, and reusable components.
 
-First, run the development server:
+## Quick Start
+
+### Run Storybook
+
+```bash
+npm run storybook
+```
+
+This starts Storybook on `http://localhost:6006`.
+
+### Build Storybook for Deployment
+
+```bash
+npm run build-storybook
+```
+
+This creates a static build in the `storybook-static` directory.
+
+### Run Next.js Dev Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This starts the Next.js app on `http://localhost:3000` (though the primary site is Storybook).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js app (minimal, Storybook is primary)
+│   └── globals.css        # Tailwind + Lineicons imports
+├── components/            # Reusable portfolio components
+│   ├── Icon.tsx
+│   ├── PageLayout.tsx
+│   ├── Callout.tsx
+│   ├── Metric.tsx
+│   ├── Section.tsx
+│   ├── Divider.tsx
+│   ├── ArtifactGallery.tsx
+│   └── *.stories.tsx      # Component stories
+└── stories/               # MDX pages and content
+    ├── Start Here/       # Overview, How I Operate, Resume
+    ├── Case Studies/     # Case study pages
+    ├── Systems/          # Design system principles
+    ├── Writing/          # Articles index
+    └── Components/       # Component documentation (auto-generated)
+```
 
-## Learn More
+## Content Structure
 
-To learn more about Next.js, take a look at the following resources:
+### Adding a New Case Study (MDX Page)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create a new MDX file in `src/stories/Case Studies/`:
+   ```mdx
+   import { Meta } from '@storybook/blocks';
+   import { PageLayout, Callout, Section, ... } from '../../components';
+   
+   <Meta title="Case Studies/Your Case Study Name" />
+   
+   <PageLayout title="Your Case Study" ...>
+     {/* Your content */}
+   </PageLayout>
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. The sidebar will automatically update based on the `title` prop in `<Meta>`.
 
-## Deploy on Vercel
+3. Use the reusable components (`Callout`, `Section`, `Metric`, `ArtifactGallery`, etc.) to maintain consistency.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Adding a New Component Story
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Create a component in `src/components/YourComponent.tsx`.
+
+2. Create a story file `src/components/YourComponent.stories.tsx`:
+   ```tsx
+   import type { Meta, StoryObj } from '@storybook/react';
+   import { YourComponent } from './YourComponent';
+   
+   const meta = {
+     title: 'Components/YourComponent',
+     component: YourComponent,
+     tags: ['autodocs'],
+   } satisfies Meta<typeof YourComponent>;
+   
+   export default meta;
+   type Story = StoryObj<typeof meta>;
+   
+   export const Default: Story = {
+     args: { /* ... */ },
+   };
+   ```
+
+3. The component will appear in the "Components" section of the sidebar.
+
+## Components
+
+### Icon
+
+Wrapper for Lineicons. Usage:
+
+```tsx
+import { Icon } from '@/components';
+
+<Icon name="lni-rocket" className="text-2xl text-blue-600" />
+```
+
+**Lineicons Import**: Lineicons is imported via npm (`lineicons` package) and included in `src/app/globals.css`. The CSS is loaded globally, so icons are available throughout Storybook.
+
+### PageLayout
+
+Container for MDX pages with title, subtitle, meta, and optional icon.
+
+### Callout
+
+Info/warn/success callouts for highlighting important content.
+
+### Metric
+
+Display key metrics with label, value, and optional helper text.
+
+### Section
+
+Structured section with heading and prose-styled content.
+
+### Divider
+
+Visual separator between sections.
+
+### ArtifactGallery
+
+Grid layout for showcasing images/artifacts with captions.
+
+## Features
+
+### Executive Summary Mode
+
+A custom toolbar toggle (📊 Summary) in Docs pages that collapses long sections, showing only headings. Click headings to expand/collapse sections. State persists in localStorage.
+
+### Typography
+
+- Tailwind CSS v4 for styling
+- `@tailwindcss/typography` for readable long-form content
+- `.prose` class applied automatically in Docs pages
+
+## Deployment
+
+### GitHub Pages (Optional)
+
+A workflow is included at `.github/workflows/deploy-storybook.yml` that builds and deploys Storybook on pushes to `main`.
+
+**To enable:**
+
+1. Go to your GitHub repository Settings → Pages
+2. Under "Source", select "GitHub Actions"
+3. Push to `main` branch to trigger deployment
+
+The workflow will:
+- Build Storybook on every push to `main`
+- Deploy to GitHub Pages automatically
+
+**Note**: You may need to enable GitHub Pages in your repository settings first.
+
+## Scripts
+
+- `npm run dev` - Start Next.js dev server
+- `npm run storybook` - Start Storybook dev server
+- `npm run build-storybook` - Build static Storybook
+- `npm run lint` - Run ESLint
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Storybook**: 10.2.0
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lineicons (via npm)
+- **Language**: TypeScript
+
+## Notes
+
+- Storybook is the primary "site" - Next.js is used as the underlying framework
+- The UI intentionally looks like Storybook (sidebar visible, minimal theming)
+- All portfolio content lives in MDX files in `src/stories/`
+- Components are documented both as stories and used in MDX pages

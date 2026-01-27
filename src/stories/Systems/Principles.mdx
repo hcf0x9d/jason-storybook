@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { PageLayout, Section, Callout } from '../../components';
+import * as React from 'react';
+
+<Meta title="Systems/Principles" />
+
+<PageLayout
+  title="Design System Principles"
+>
+
+<Section heading="Core Principles">
+  <div>
+    These principles guide how I approach design system work:
+  </div>
+  <ul className="list-disc list-inside space-y-2 my-4">
+    <li><strong>Developer Experience First:</strong> If developers can't use it easily, it's not a good system.</li>
+    <li><strong>Documentation is Product:</strong> Great components without docs are incomplete.</li>
+    <li><strong>Start Small, Scale Smart:</strong> Build for current needs, design for future growth.</li>
+    <li><strong>Measure Everything:</strong> Track adoption, usage, and impact.</li>
+  </ul>
+</Section>
+
+</PageLayout>

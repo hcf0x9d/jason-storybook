@@ -32,6 +32,12 @@ jobs:
         run: npm ci
 
       - name: Build Storybook
+        env:
+          # If your repo is served from a subdirectory (e.g., username.github.io/repo-name),
+          # set this to your repository name with a leading slash.
+          # Example: STORYBOOK_BASE_PATH: '/jason-storybook'
+          # Leave empty (or remove this env var) for root domain (username.github.io) or custom domain
+          STORYBOOK_BASE_PATH: ${{ secrets.STORYBOOK_BASE_PATH || '' }}
         run: npm run build-storybook
 
       - name: Setup Pages

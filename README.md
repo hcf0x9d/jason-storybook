@@ -152,17 +152,31 @@ A custom toolbar toggle (📊 Summary) in Docs pages that collapses long section
 
 A workflow is included at `.github/workflows/deploy-storybook.yml` that builds and deploys Storybook on pushes to `main`.
 
-**To enable:**
+**Setup Steps:**
 
-1. Go to your GitHub repository Settings → Pages
-2. Under "Source", select "GitHub Actions"
-3. Push to `main` branch to trigger deployment
+1. **Enable GitHub Pages:**
+   - Go to your GitHub repository → Settings → Pages
+   - Under "Source", select "GitHub Actions"
+   - Save the settings
 
-The workflow will:
+2. **Configure Base Path (if needed):**
+   - If your site is served from a subdirectory (e.g., `username.github.io/repo-name`):
+     - Go to repository Settings → Secrets and variables → Actions
+     - Add a new repository secret named `STORYBOOK_BASE_PATH`
+     - Set the value to your repository name with a leading slash (e.g., `/jason-storybook`)
+   - If your site is served from root (e.g., `username.github.io` or a custom domain):
+     - No configuration needed - the workflow will work as-is
+
+3. **Trigger Deployment:**
+   - Push to the `main` branch to trigger automatic deployment
+   - Or manually trigger via Actions tab → "Deploy Storybook to GitHub Pages" → "Run workflow"
+
+**The workflow will:**
 - Build Storybook on every push to `main`
 - Deploy to GitHub Pages automatically
+- Your site will be available at `https://username.github.io/repo-name` (or root if configured)
 
-**Note**: You may need to enable GitHub Pages in your repository settings first.
+**Note:** The first deployment may take a few minutes. You can monitor progress in the Actions tab.
 
 ## Scripts
 

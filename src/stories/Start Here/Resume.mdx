@@ -1,15 +1,206 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { PageLayout, Callout } from '../../components';
 import * as React from 'react';
+
+import {PageLayout, Section, Callout, Card, ExperienceEntry} from '../../components';
+
+export const experience = {
+main: [
+    {
+        title: "Director of Product Design",
+        company: "Foodsmart",
+        period: "Apr 2025 – Dec 2025",
+        items: [
+            'Led end-to-end product design across mobile, web, and native platforms.',
+            'Established DesignOps governance and standardized handoffs; reduced design→dev cycle time by ~40%.',
+            'Founded the Ambrosia Design System (token-based) adopted across platforms to improve velocity + consistency.',
+            'Partnered with Eng leadership to embed quality metrics into delivery pipelines and reduce design debt.'
+        ]
+    },
+    {
+        title: "Lead Product Designer",
+        company: "Foodsmart",
+        period: "Sep 2023 – Apr 2025",
+        items: [
+            'Redesigned core dietitian workflows; improved provider NPS by +43 points.',
+            'Designed the Foodsmart for Dietitians platform (charting, scheduling, AI note generation) from the ground up.',
+            'Bridged design + code through component architecture collaboration and front-end implementation alignment.'
+        ]
+    },
+    {
+        title: "Senior Product Designer",
+        company: "Medable",
+        period: "Oct 2021 – Aug 2023",
+        items: [
+            "Led creation of Nucleus, Medable's first unified design system (tokens, components, accessibility standards).",
+            'Defined governance for component lifecycle, documentation, and contribution workflows.',
+            'Ran usability studies and hypothesis-driven experiments to validate direction and measure UX quality.',
+        ]
+    },
+    {
+        title: "Director of UX",
+        company: "otto by DEVCON",
+        period: "Feb 2021 – Oct 2021",
+        items: [
+            'Directed UX strategy for a SaaS platform mitigating JavaScript vulnerabilities.',
+            'Designed dashboards for real-time threat detection + remediation workflows.',
+        ]
+    },
+    {
+        title: "Design Technologist",
+        company: "CI Security",
+        period: "Jan 2018 – Oct 2020",
+        items: [
+            'Established brand + digital standards; created UI library and componentized marketing templates.',
+            'Built a partner marketing portal that reduced marketing overhead by ~60%.',
+            'Redesigned web experience for SEO/accessibility; doubled qualified leads.',
+        ]
+    },
+],
+extended: [
+    {
+        title: "Design Technologist / Web Developer",
+        company: "Capital One Investing / ShareBuilder",
+        period: "2014 – 2018"
+    },
+    {
+        title: "UX Designer &amp; Developer",
+        company: "Music Prodigy",
+        period: "2015 – 2016"
+    },
+    {
+        title: "Creative Lead",
+        company: "Averetek (E2open)",
+        period: "2011 – 2014"
+    },
+    {
+        title: "Owner / Photographer",
+        company: "f/8.3 photography",
+        period: "2008 – 2011"
+    },
+]
+};
+export const education = [
+    {
+        certificate: "Certified Usability Analyst (CUA™)",
+        institution: "Human Factors International",
+        years: "2023"
+    },
+    {
+        certificate: "Full-Stack Web Developer",
+        institution: "Udacity",
+        years: "2017"
+    },
+    {
+        certificate: "Front-End Web Developer",
+        institution: "Udacity",
+        years: "2016"
+    },
+    {
+        certificate: "BA Music Education",
+        institution: "Central Washington University",
+        years: "2000-2005"
+    }
+]
 
 <Meta title="Start Here/Resume" />
 
 <PageLayout
   title="Resume"
+  subtitle="Design Systems & DesignOps Leader — scaling clarity, quality, and velocity in the age of AI"
+  meta="Greater Seattle Area · Résumé · 2026"
 >
+  <Section heading="At a glance">
+      <div className="space-y-3">
+          <p className="m-0 text-gray-700">I build design systems, workflows, and operational frameworks that make great design repeatable—across products, platforms, and teams. I specialize in bridging design + engineering, and using AI/automation responsibly to improve speed without sacrificing quality.</p>
+      </div>
 
-<Callout variant="info">
-  Resume content coming soon. This page will include a downloadable PDF and key highlights.
-</Callout>
+    <div className="flex flex-wrap gap-4 text-sm">
+      <p className="m-0"><a className="text-blue-600 hover:underline" href="mailto:jason@fukura.design">Email</a>
+        ·
+      <a className="text-blue-600 hover:underline" href="https://www.linkedin.com/in/jason-fukura" target="_blank" rel="noreferrer">LinkedIn</a>
+        ·
+      <a className="text-blue-600 hover:underline" href="https://medium.com/@jasonfukura" target="_blank" rel="noreferrer">Writing</a>
+        ·
+      <a className="text-blue-600 hover:underline" href="https://jason.fukura.design" target="_blank" rel="noreferrer">Personal site</a></p>
+    </div>
+  </Section>
 
+  <Section heading="Strengths">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 pt-4">
+      <Card title="Systems">
+        <ul className="list-disc pl-5 text-sm space-y-1">
+          <li>Token-based design systems (components + docs + governance)</li>
+          <li>Cross-platform consistency (web + mobile + native)</li>
+          <li>Contribution models that scale without slowing teams down</li>
+        </ul>
+      </Card>
+
+      <Card title="Design Operations">
+        <ul className="list-disc pl-5 text-sm space-y-1">
+          <li>Workflow UX in complex/regulated domains (healthcare, security)</li>
+          <li>DesignOps: rituals, critiques, handoffs, and quality gates</li>
+          <li>AI-assisted workflows for prototyping + documentation (responsibly)</li>
+        </ul>
+      </Card>
+    </div>
+  </Section>
+
+  <Section heading="Experience">
+    <div className="space-y-8">
+    {experience.main.map((item) => (
+        <ExperienceEntry
+            title={item.title}
+            period={item.period}
+            company={item.company}
+            items={item.items}
+        />
+    ))}
+      <details className="rounded-md border border-gray-200 bg-white p-4">
+        <summary className="cursor-pointer text-sm font-semibold text-gray-700">Earlier roles (Capital One, Music Prodigy, Averetek, more)</summary>
+        <div className="pt-4 space-y-4 text-sm text-gray-700">
+            {experience.extended.map((item) => (
+                <div className="pt-4">
+                    <div className=""><b>{item.title}</b> — {item.company}</div>
+                    <div className="text-gray-600">{item.period}</div>
+                </div>
+            ))}
+        </div>
+      </details>
+    </div>
+  </Section>
+
+  <Section heading="Skills & certifications">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 pt-4">
+    </div>
+  </Section>
+
+  <Section heading="Education">
+      <div className="flex flex-wrap">
+          <div className="flex-1">
+              {education.map((item) => (
+                  <div className="text-sm text-gray-700 pt-4">
+                      <div className="font-semibold text-gray-900">{item.certificate}</div>
+                      <div>{item.institution} ({item.years})</div>
+                  </div>
+              ))}
+          </div>
+          <Card variant="info" title="Top skills">
+              <ul className="list-disc pl-5 text-sm space-y-1">
+                  <li>Design Systems</li>
+                  <li>DesignOps</li>
+                  <li>Design team coordination</li>
+                  <li>AI-assisted workflows (responsible use)</li>
+              </ul>
+          </Card>
+      </div>
+  </Section>
+
+  <Section heading="Download">
+    <Callout variant="warn" title="PDF version">
+      <div className="space-y-2">
+        <p>If you want the full PDF version, add it to <span className="font-mono">/public/resume.pdf</span> and this page will serve it at <span className="font-mono">/resume.pdf</span>.</p>
+        <p className="text-sm text-gray-700">This Storybook page is intentionally skimmable; the PDF remains the canonical “send it to recruiters” artifact.</p>
+      </div>
+    </Callout>
+  </Section>
 </PageLayout>

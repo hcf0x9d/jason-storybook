@@ -1,15 +1,52 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { PageLayout, Callout } from '../../components';
+import {PageLayout, Section, Card} from '../../components';
 import * as React from 'react';
+import Ambrosia from '../assets/ambrosia-design-system.png';
+import MDRDashboard from '../assets/MDRDashboard-prototype.jpg';
+import RMW from '../assets/rmw_setup.png';
+import FoodBenefits from '../assets/food-benefits.png';
+import Integrations from '../assets/integrations.png';
+
+export const articles = [
+    {
+        title: "I Built a Product With AI. There Were No Vibes.",
+        date: "Jan 2026",
+        readTime: "7 min read",
+        url: "https://medium.com/@jasonfukura/i-built-a-product-with-ai-there-were-no-vibes-554a3d3c6b60",
+        summary: "A practical playbook for using AI as a copilot without letting it quietly sabotage your codebase."
+    },
+    {
+        title: "Scaling Design Systems",
+        date: "Feb 2025",
+        readTime: "10 min read",
+        url: "https://medium.com/design-systems-collective/scaling-design-systems-99f56459e665",
+        summary: "An honest look at the messy, iterative process of building a design system that survives contact with reality, balancing principles, speed, and cross-functional alignment."
+    },
+    {
+        title: "Figma Team Rooms",
+        date: "Jan 2025",
+        readTime: "10 min read",
+        url: "I love collaboration with my engineers and PMs, but sometimes, I need a quiet space to throw spaghetti at the wall until I find what sticks. I don’t need people in the room seeing how the sausage is made.",
+        summary: "I love collaboration with my engineers and PMs, but sometimes, I need a quiet space to throw spaghetti at the wall until I find what sticks. I don’t need people in the room seeing how the sausage is made."
+    },
+]
+
 
 <Meta title="Writing/Articles" />
 
 <PageLayout
-  title="Articles"
+  title="Thoughts on systems, ops, and craft"
 >
-
-<Callout variant="info">
-  Article index coming soon. This will list published articles and blog posts.
-</Callout>
-
+    <Section heading="Articles">
+        <div className="space-y-3">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {articles.map((article) => (
+                    <Card key={article.url} title={article.title} link={article.url} cta={"Read on Medium"}>
+                        <small className="text-neutral-700 mt-0">{article.date} · {article.readTime}</small>
+                        <p>{article.summary}</p>
+                    </Card>
+                ))}
+            </div>
+        </div>
+    </Section>
 </PageLayout>

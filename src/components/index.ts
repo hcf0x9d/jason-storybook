@@ -6,4 +6,6 @@ export { Section } from './Section';
 export { Divider } from './Divider';
 export { ArtifactGallery } from './ArtifactGallery';
 export { Button } from './Button';
+export { Card } from './Card';
+export { ExperienceEntry } from './ExperienceEntry';
 export type { ButtonProps, ButtonSemantic, ButtonVariant, ButtonWidth } from './Button';

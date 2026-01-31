@@ -17,22 +17,19 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   children,
 }) => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="mb-8">
-        {icon && (
-          <div className="mb-4">
-            <Icon name={icon} className="text-4xl text-gray-700" />
-          </div>
-        )}
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">{title}</h1>
+    <div className="max-w-4xl mx-auto px-4">
+      <div className="mb-8 pb-8">
+        <h1 className="text-4xl font-bold text-gray-900 mb-0 sb-unstyled">{title}</h1>
         {subtitle && (
-          <p className="text-xl text-gray-600 mb-2">{subtitle}</p>
+          <h2 className="text-2xl text-gray-600 border-none sb-unstyled">
+            {subtitle}
+          </h2>
         )}
         {meta && (
-          <p className="text-sm text-gray-500">{meta}</p>
+          <span className="text-xs text-gray-600 pt-4 block">{meta}</span>
         )}
       </div>
-      <div className="prose prose-lg max-w-none">
+      <div className="max-w-none">
         {children}
       </div>
     </div>

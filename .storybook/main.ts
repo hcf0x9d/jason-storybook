@@ -21,14 +21,16 @@ const config: StorybookConfig = {
   "staticDirs": [
     "../public"
   ],
-  // Configure base path for GitHub Pages if needed
-  ...(basePath && {
-    viteFinal: async (config) => {
-      if (config.base === undefined || config.base === '/') {
-        config.base = basePath;
-      }
-      return config;
-    },
-  }),
+  viteFinal: async (config) => {
+    // For GitHub Pages project sites, set STORYBOOK_BASE_PATH to '/<repo>/'
+    // For custom domains or user sites, leave it empty to use '/'
+    if (basePath) {
+      const normalized = basePath.startsWith('/') ? basePath : `/${basePath}`;
+      config.base = normalized.endsWith('/') ? normalized : `${normalized}/`;
+    } else {
+      config.base = '/';
+    }
+    return config;
+  },
 };
 export default config;

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "lineicons/dist/lineicons.css";
-@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;
@@ -61,3 +60,18 @@ body {
 .executive-summary-mode .executive-summary-toggle.executive-summary-expanded::after {
   content: ' ▲';
 }
+
+/*!* Kill default doc typography spacing in Storybook Docs *!*/
+/*.sbdocs p {*/
+/*  margin: 0;*/
+/*}*/
+
+/*.sbdocs ul,*/
+/*.sbdocs ol {*/
+/*  margin: 0;*/
+/*  padding-left: 1.25rem;*/
+/*}*/
+
+/*.sbdocs li {*/
+/*  margin: 0;*/
+/*}*/

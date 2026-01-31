@@ -37,7 +37,7 @@ src/
 ├── components/            # Reusable portfolio components
 │   ├── Icon.tsx
 │   ├── PageLayout.tsx
-│   ├── Callout.tsx
+│   ├── Card.tsx
 │   ├── Metric.tsx
 │   ├── Section.tsx
 │   ├── Divider.tsx
@@ -58,7 +58,7 @@ src/
 1. Create a new MDX file in `src/stories/Case Studies/`:
    ```mdx
    import { Meta } from '@storybook/blocks';
-   import { PageLayout, Callout, Section, ... } from '../../components';
+   import { PageLayout, Card, Section, ... } from '../../components';
    
    <Meta title="Case Studies/Your Case Study Name" />
    
@@ -69,7 +69,7 @@ src/
 
 2. The sidebar will automatically update based on the `title` prop in `<Meta>`.
 
-3. Use the reusable components (`Callout`, `Section`, `Metric`, `ArtifactGallery`, etc.) to maintain consistency.
+3. Use the reusable components (`Card`, `Section`, `Metric`, `ArtifactGallery`, etc.) to maintain consistency.
 
 ### Adding a New Component Story
 
@@ -114,7 +114,7 @@ import { Icon } from '@/components';
 
 Container for MDX pages with title, subtitle, meta, and optional icon.
 
-### Callout
+### Card
 
 Info/warn/success callouts for highlighting important content.
 

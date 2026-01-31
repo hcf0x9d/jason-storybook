@@ -17,7 +17,7 @@ export const Section: React.FC<SectionProps> = ({ heading, children, level = 2 }
   return (
     <section className="mb-6">
       <HeadingTag className={headingClasses[level]}>{heading}</HeadingTag>
-      <div className="prose prose-lg max-w-none">{children}</div>
+      <div className="max-w-none">{children}</div>
     </section>
   );
 };

@@ -18,7 +18,7 @@ const preview: Preview = {
     },
 
     docs: {
-      toc: true,
+      toc: false,
     },
 
     options: {

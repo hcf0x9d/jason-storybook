@@ -12,15 +12,15 @@ type Story = StoryObj<typeof meta>;
 
 const sampleArtifacts = [
   {
-    image: 'https://via.placeholder.com/400x300?text=Artifact+1',
+    image: 'https://placehold.co/600x400',
     caption: 'Component library overview',
   },
   {
-    image: 'https://via.placeholder.com/400x300?text=Artifact+2',
+    image: 'https://placehold.co/600x400',
     caption: 'Design tokens documentation',
   },
   {
-    image: 'https://via.placeholder.com/400x300?text=Artifact+3',
+    image: 'https://placehold.co/600x400',
     caption: 'Usage examples',
   },
 ];
@@ -43,7 +43,7 @@ export const FourColumns: Story = {
     artifacts: [
       ...sampleArtifacts,
       {
-        image: 'https://via.placeholder.com/400x300?text=Artifact+4',
+        image: 'https://placehold.co/600x400',
         caption: 'Additional artifact',
       },
     ],
@@ -55,13 +55,13 @@ export const WithoutCaptions: Story = {
   args: {
     artifacts: [
       {
-        image: 'https://via.placeholder.com/400x300?text=Image+1',
+        image: 'https://placehold.co/600x400',
       },
       {
-        image: 'https://via.placeholder.com/400x300?text=Image+2',
+        image: 'https://placehold.co/600x400',
       },
       {
-        image: 'https://via.placeholder.com/400x300?text=Image+3',
+        image: 'https://placehold.co/600x400',
       },
     ],
   },

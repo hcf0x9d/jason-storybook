@@ -1,90 +1,121 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { PageLayout, Metric, Section, Callout, Icon } from '../../components';
 import * as React from 'react';
+
+import { PageLayout, Metric, Section, Callout, Icon, Card } from '../../components';
+import { StorybookLink } from '../../components/StorybookLink';
+
+export const caseStudies = [
+  {
+    title: 'Ambrosia Design System',
+    link: 'Case Studies/Ambrosia Design System',
+    summary: 'Token-based design system built from scratch for scale.',
+  },
+  {
+    title: 'DesignOps OS',
+    link: 'Case Studies/DesignOps OS',
+    summary: 'Operating model for quality, critique, and handoff.',
+  },
+  {
+    title: 'Kyōfolio',
+    link: 'Case Studies/Kyōfolio',
+    summary: 'Energy-aware daily planning app built solo.',
+  },
+];
 
 <Meta title="Start Here/Overview" />
 
 <PageLayout
-  title="Jason Fukura — Portfolio"
-  subtitle="Design Systems & Product Design"
-  meta="Built with Storybook"
+  title="Systems-first design."
+  subtitle="Human-centered outcomes."
+  meta="Portfolio · 2026 · Built with Storybook"
   icon="lni-user"
 >
+  <Section heading="Introduction">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-6">
+          <Metric label="Experience" value="10+ yrs" helperText="Product + systems" />
+          <Metric label="Design systems" value="2 major" helperText="Built from scratch" />
+          <Metric label="Specialty" value="Workflow UX" helperText="DesignOps + handoff" />
+      </div>
+    <div className="space-y-3">
+        <span className="text-xl font-bold">I build design systems, workflows, and operational frameworks that make great design repeatable—across products,
+            platforms, and teams.</span>
 
-<Section heading="Welcome">
-  Welcome to my portfolio. This site is built with Storybook to showcase both my design work and the systems I build.
+        <p className="mb-4">I’m a <b>Director of Product Design</b> focused on scaling quality, clarity, and
+        efficiency in the age of AI.</p>
 
-  I specialize in design systems, product design, and the operational practices that make great design teams successful.
-</Section>
+        <p className="mb-4">Over the past decade, I’ve built design systems, teams, and operations that make great design repeatable—from
+        founding <b>Ambrosia</b> at Foodsmart to <b>Nucleus</b> at
+            Medable. I transform chaos into coherence.</p>
 
-<Section heading="Quick Facts">
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
-    <Metric
-      label="Years Experience"
-      value="10+"
-      helperText="Design systems & product"
-    />
-    <Metric
-      label="Design Systems"
-      value="3"
-      helperText="Built from scratch"
-    />
-    <Metric
-      label="Teams Led"
-      value="5+"
-      helperText="Cross-functional"
-    />
-  </div>
-</Section>
+        Design leadership today isn’t just about craft—it’s about building systems that allow creativity to thrive
+        sustainably. I specialize in bridging design and engineering, using AI and automation to accelerate workflows
+        while preserving the human touch that makes products feel alive.
 
-<Section heading="Case Studies">
-  <div className="mb-4">
-    Explore detailed case studies of my work:
-  </div>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-    <Callout variant="info" title="Case Study Template">
-      <div className="mb-2 font-semibold text-blue-600">
-        View the template →
-      </div>
-      <div className="text-sm">
-        See the structure I use for documenting case studies. Use the sidebar to navigate.
-      </div>
-    </Callout>
-    <Callout variant="info" title="Ambrosia Design System">
-      <div className="mb-2 font-semibold text-blue-600">
-        Coming soon →
-      </div>
-      <div className="text-sm">
-        A comprehensive design system built for scale.
-      </div>
-    </Callout>
-    <Callout variant="info" title="DesignOps OS">
-      <div className="mb-2 font-semibold text-blue-600">
-        Coming soon →
-      </div>
-      <div className="text-sm">
-        Operational systems for design teams.
-      </div>
-    </Callout>
-    <Callout variant="info" title="Kyōfolio">
-      <div className="mb-2 font-semibold text-blue-600">
-        Coming soon →
-      </div>
-      <div className="text-sm">
-        A portfolio platform for designers.
-      </div>
-    </Callout>
-  </div>
-</Section>
+    </div>
+  </Section>
 
-<Section heading="Get in Touch">
-  <div>
-    Interested in working together? I'm always open to discussing design systems, product design, or how to build better design operations.
-  </div>
-  <div className="flex items-center gap-4 mt-4">
-    <Icon name="lni-envelope" className="text-gray-600" />
-    <span className="text-gray-700">Available for consulting and full-time opportunities</span>
-  </div>
-</Section>
+  <Section heading="Building clarity in the age of AI">
+    <div className="space-y-3">
 
+        I’m interested in the intersection of <span className="font-semibold">clarity</span> and <span className="font-semibold">speed</span>:
+        how teams ship faster without drifting into inconsistency, and how AI can support execution without eroding
+        quality or trust.
+
+        In practice, that looks like: clearer component contracts, tighter handoffs, pragmatic governance, and toolchains
+        that reduce repetitive work—so humans can spend more time on judgment, narrative, and user outcomes.
+
+    </div>
+
+    <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <Callout variant="success" title="What I build">
+        <ul className="list-disc pl-5 text-sm space-y-1">
+          <li>Design systems</li>
+          <li>Complex workflow UX</li>
+          <li>DesignOps frameworks</li>
+          <li>AI-assisted workflows</li>
+        </ul>
+      </Callout>
+      <Callout variant="warn" title="What I avoid">
+        <ul className="list-disc pl-5 text-sm space-y-1">
+          <li>“Design system as a sticker pack”</li>
+          <li>Process theater</li>
+          <li>AI-as-magic</li>
+        </ul>
+      </Callout>
+    </div>
+  </Section>
+
+  <Section heading="Explore the system">
+    <div className="mb-3 text-sm text-gray-700">
+        <p>This is a Storybook-first portfolio. Docs pages are the narrative; Components is the system view.</p>
+        <ul>
+            <li><StorybookLink title="Systems/Principles" className="text-blue-600 hover:underline"><b>Principles</b></StorybookLink>: The rules that shaped decisions across products and teams.</li>
+            <li><StorybookLink title="Systems/Governance" className="text-blue-600 hover:underline"><b>Governance</b></StorybookLink>: How the system scales without turning into a suggestion.</li>
+            <li><StorybookLink title="Systems/Tokens & Theming" className="text-blue-600 hover:underline"><b>Tokens & Theming</b></StorybookLink>: The source-of-truth layer: color, spacing, typography, modes.</li>
+            <li><StorybookLink title="Components/PageLayout" className="text-blue-600 hover:underline"><b>Components</b></StorybookLink>: The portfolio is built from the same components it documents.</li>
+        </ul>
+    </div>
+  </Section>
+
+  <Section heading="Case Studies">
+    <div className="pb-4 text-sm text-gray-700">Start with the template if you want the structure first.</div>
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {caseStudies.map((cs) => (
+            <Card key={cs.title} title={cs.title} link={cs.link} cta="View Case Study →">
+                <div className="text-sm">{cs.summary}</div>
+            </Card>
+        ))}
+
+    </div>
+  </Section>
+
+  <Callout title="Get in Touch">
+    <div className="space-y-3">
+        Interested in working together? I’m always open to discussing design systems, workflow UX, or how to build design
+        operations that hold up under real-world constraints.
+      <div className="text-sm pb-6">
+        <StorybookLink title="Start Here/Resume" className="text-blue-600 hover:underline">Jump to Resume →</StorybookLink>
+      </div>
+    </div>
+  </Callout>
 </PageLayout>

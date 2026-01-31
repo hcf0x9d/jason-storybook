@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import * as React from 'react';
+
+import {PageLayout, Section, Callout, Card, ExperienceEntry} from '../../components';
+import Ambrosia from '../assets/ambrosia-design-system.png';
+import MDRDashboard from '../assets/MDRDashboard-prototype.jpg';
+import RMW from '../assets/rmw_setup.png';
+import FoodBenefits from '../assets/food-benefits.png';
+import Integrations from '../assets/integrations.png';
+
+export const caseStudies = [
+    {
+        title: "Ambrosia Design System",
+        url: "https://foodsmartops.hcf0x9d.com/",
+        image: Ambrosia,
+        summary: "Token-based, cross-platform design system powering member and RD tools, improving design-to-dev velocity and visual coherence across web, iOS, and Android."
+    },
+    {
+        title: "Designing Trust in a Silent, High-Stakes Security System",
+        url: "https://cisecurity.hcf0x9d.com/",
+        image: MDRDashboard,
+        summary: "CI Security provides Managed Detection and Response (MDR) services for organizations without in-house security teams."
+    },
+    {
+        title: "Making Retirement Human",
+        url: "https://retirementcalc.hcf0x9d.com/",
+        image: RMW,
+        summary: "A plain-language retirement calculator designed to feel less like a spreadsheet and more like a conversation."
+    },
+    {
+        title: "Connecting Platforms",
+        url: "https://integrations.hcf0x9d.com/",
+        image: Integrations,
+        summary: "Designing a modular integration system that reduces complexity and empowers teams to configure API connections in minutes—not hours."
+    },
+    {
+        title: "Food Benefit Ledger",
+        url: "https://foodbenefits.hcf0x9d.com/",
+        image: FoodBenefits,
+        summary: "Comprehensive redemption ledger that helps dietitians troubleshoot benefit issues and build trust with members in real time."
+    },
+]
+
+<Meta title="Start Here/Case Studies" />
+
+<PageLayout
+  title="Case Studies"
+  subtitle="Systems, workflows, and the outcomes they unlocked"
+>
+  <Section heading="Selected case studies">
+      <div className="space-y-3">
+          <p className="m-0 text-gray-700">I’m rebuilding my case studies inside Storybook so the system and the story live together.</p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {caseStudies.map((caseStudy) => (
+                  <Card key={caseStudy.url} title={caseStudy.title} link={caseStudy.url} cta={"View case study"}>
+                      <div className="h-50 w-full overflow-hidden rounded-md bg-gray-100">
+                          <img
+                              src={caseStudy.image.src}
+                              alt={caseStudy.image.alt ?? ''}
+                              className="h-full w-full object-cover"
+                              loading="lazy"
+                          />
+                      </div>
+                      <p>{caseStudy.summary}</p>
+                  </Card>
+                  ))}
+          </div>
+      </div>
+  </Section>
+
+</PageLayout>

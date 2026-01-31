@@ -1,36 +1,171 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { PageLayout, Section, Callout } from '../../components';
 import * as React from 'react';
+
+import { PageLayout, Section, Callout, Icon } from '../../components';
+import { StorybookLink } from '../../components/StorybookLink';
 
 <Meta title="Start Here/How I Operate" />
 
 <PageLayout
   title="How I Operate"
-  subtitle="My approach to design systems and product work"
+  subtitle="A practical view into how I partner, make decisions, and help teams ship high-quality products at scale."
+  meta="Portfolio · 2026"
+  icon="lni-handshake"
 >
+  <Section heading="Introduction">
+    <div className="space-y-3">
+      <p>
+        This page reflects how I work day to day—not a theoretical process, but the operating principles I’ve used
+        leading design systems, workflows, and cross-functional teams in complex product environments.
+      </p>
 
-<Section heading="Principles">
-  <div>
-    I believe design systems are about enabling teams to move faster while maintaining quality. 
-    This means focusing on developer experience, clear documentation, and sustainable processes.
-  </div>
-</Section>
+[//]: # (<p className="text-sm text-gray-600">)
 
-<Section heading="Process">
-  <div>
-    My work typically follows a structured approach:
-  </div>
-  <ol className="list-decimal list-inside space-y-2 my-4">
-    <li>Understand the problem space and constraints</li>
-    <li>Design with the system in mind</li>
-    <li>Build iteratively with real usage</li>
-    <li>Document as you go</li>
-    <li>Measure and iterate</li>
-  </ol>
-</Section>
+[//]: # (  If you want the “system view,” start with{' '})
 
-<Callout variant="info" title="Note">
-  This page is a placeholder. More detailed content coming soon.
-</Callout>
+[//]: # (  <StorybookLink title="Systems/Governance" className="text-blue-600 hover:underline">)
 
+[//]: # (    Governance)
+
+[//]: # (  </StorybookLink>)
+
+[//]: # (  {' '}and{' '})
+
+[//]: # (  <StorybookLink title="Systems/Tokens & Theming" className="text-blue-600 hover:underline">)
+
+[//]: # (    Tokens &amp; Theming)
+
+[//]: # (  </StorybookLink>)
+
+[//]: # (  .)
+
+[//]: # (</p>)
+    </div>
+  </Section>
+
+  <Section heading="Partnering with Product & Engineering">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="md:col-span-2 space-y-3">
+        <p>
+          Great products aren’t built in isolation. I view design as connective tissue—linking business goals, user needs,
+          and technical execution into a shared understanding of the problem.
+        </p>
+
+        <ul className="list-disc pl-5 space-y-2">
+          <li>
+            <span className="font-semibold">Shared problem framing</span> before pixels touch the canvas
+          </li>
+          <li>
+            <span className="font-semibold">Early collaboration</span> to surface technical constraints and opportunities
+          </li>
+          <li>
+            <span className="font-semibold">Explicit tradeoff visibility</span>—good design is choosing what matters most
+          </li>
+          <li>
+            <span className="font-semibold">Respect for engineering time</span>, scope, and implementation reality
+          </li>
+          <li>
+            <span className="font-semibold">Clear ownership</span> of UX, with shared ownership of outcomes
+          </li>
+        </ul>
+      </div>
+
+      <div className="md:col-span-1">
+        <Callout variant="info" title="What teammates say">
+          <div className="space-y-3">
+            <p className="italic">
+              “Jason cares deeply about his team, maintains a consistently high bar and approaches problems with clear,
+              logical thinking.”
+            </p>
+            <div className="text-sm text-gray-600 pb-4">— Alex</div>
+          </div>
+        </Callout>
+      </div>
+    </div>
+  </Section>
+
+  <Section heading="Decision-making & Critique">
+    <div className="space-y-6">
+      <div className="space-y-2">
+        <h3 className="text-lg font-semibold">The process</h3>
+        <p>
+          Critique is a tool for clarity, not performance. I facilitate discussions that surface blind spots, challenge
+          assumptions, and align the team on the problem—rather than defend a single solution.
+        </p>
+        <p className="text-sm text-gray-700">
+          Decisions are finalized based on evidence, user needs, and business context—with a clear owner responsible for
+          moving forward.
+        </p>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-lg font-semibold">Handling disagreement</h3>
+        <p>
+          Disagreement is healthy when it’s about the work. I encourage multiple perspectives and make space for dissent.
+          When ambiguity remains, decisions are grounded in primary user needs and business constraints.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <Section heading="Quality & Delivery Loop">
+    <div className="space-y-3">
+      <p>
+        I believe operational rigor enables creativity. By establishing clear standards and feedback loops, teams can ship
+        confidently without quality becoming a bottleneck.
+      </p>
+
+      <ul className="list-disc pl-5 space-y-2">
+        <li>
+          <span className="font-semibold">Design QA</span> — embedded into the development cycle to catch regressions early
+        </li>
+        <li>
+          <span className="font-semibold">Accessibility</span> — considered from the start, not patched in at the end
+        </li>
+        <li>
+          <span className="font-semibold">Handoff</span> — clear specs, defined states, and direct communication with
+          engineering
+        </li>
+        <li>
+          <span className="font-semibold">Post-launch</span> — shipping is the beginning; learn from real usage and iterate
+          intentionally
+        </li>
+      </ul>
+
+      <Callout variant="success" title="Responsible use of AI">
+        <div className="space-y-3">
+          <p>
+            I use AI as an accelerator and support tool—not a decision-maker. It helps handle rote work, explore
+            alternatives, and move faster through low-leverage tasks, allowing teams to focus on judgment, taste,
+            empathy, and strategic thinking.
+          </p>
+          <p className="text-sm text-gray-700">Accountability always remains with the team.</p>
+        </div>
+      </Callout>
+    </div>
+  </Section>
+
+  <Section heading="What to expect in the first 30 days">
+    <ul className="list-disc pl-5 space-y-2">
+      <li>A clear audit of existing systems, workflows, and quality baselines</li>
+      <li>Strong, transparent partnerships with product and engineering leads</li>
+      <li>Identification of immediate quality gaps and low-effort, high-impact improvements</li>
+      <li>Clear documentation of next steps and longer-term strategic opportunities</li>
+    </ul>
+
+    <div className="mt-4 text-sm text-gray-700">
+      This is a living snapshot of how I work. My goal is to be a steady, collaborative partner who brings clarity to
+      complexity and helps teams ship with confidence.
+    </div>
+  </Section>
+
+  <Section heading="Let’s chat">
+    <div className="space-y-3">
+      <p>
+        If you’re building a system, scaling a product surface, or trying to reduce “chaos tax” without slowing down,
+        I’d love to talk.
+      </p>
+
+    </div>
+  </Section>
 </PageLayout>

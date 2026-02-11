@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Icon } from '../Icon';
 import { StorybookLink } from '../StorybookLink';
 
 type CardVariant = 'info' | 'warn' | 'success';
@@ -10,8 +9,10 @@ interface CardProps {
   title?: string;
 
   /**
-   * Storybook "kind/title" target, e.g. "Start Here/Resume" or "Systems/Governance"
-   * If provided, the whole card becomes a clickable Storybook link.
+   * Link target for the card.
+   * - Storybook internal target: "kind/title" (e.g. "Start Here/Resume", "Systems/Governance")
+   * - External URL: "https://…" (opens in a new tab)
+   * If provided, the whole card becomes clickable.
    */
   link?: string;
   cta?: string;
@@ -33,6 +34,20 @@ const variantStyles: Record<CardVariant, { icon: string; iconClass: string; }> =
   },
 };
 
+const isExternalUrl = (value: string): boolean => {
+  const v = value.trim().toLowerCase();
+
+  // Treat absolute URLs and common external schemes as external.
+  // (We keep this conservative so Storybook "kind/title" doesn’t get misclassified.)
+  return (
+    v.startsWith('http://') ||
+    v.startsWith('https://') ||
+    v.startsWith('//') ||
+    v.startsWith('mailto:') ||
+    v.startsWith('tel:')
+  );
+};
+
 export const Card: React.FC<CardProps> = ({
                                             variant = 'info',
                                             children,
@@ -42,13 +57,14 @@ export const Card: React.FC<CardProps> = ({
                                             className = '',
                                           }) => {
   const { icon, iconClass } = variantStyles[variant];
+  const isExternal = Boolean(link && isExternalUrl(link));
 
   const content = (
     <div
       className={[
         'bg-white rounded-xl p-4 my-4 drop-shadow-sm h-full justify-between flex flex-col',
         'ring-1 ring-transparent transition',
-        link ? `cursor-pointer hover:drop-shadow-xl` : '',
+        link ? 'cursor-pointer hover:drop-shadow-xl' : '',
         className,
       ].join(' ')}
     >
@@ -67,7 +83,21 @@ export const Card: React.FC<CardProps> = ({
   // No link = plain card
   if (!link) return content;
 
-  // Link = wrap in StorybookLink so navigation works (and doesn’t break in the docs iframe)
+  // External URL = normal anchor (new tab)
+  if (isExternal) {
+    return (
+      <a
+        href={link}
+        className="block no-underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  // Storybook internal target = wrap in StorybookLink so navigation works (and doesn’t break in the docs iframe)
   return (
     <StorybookLink title={link} className="block no-underline">
       {content}
